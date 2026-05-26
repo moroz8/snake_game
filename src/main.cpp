@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <conio.h>
 #include <algorithm>
+#include <fstream>
 #include <iostream>
 #include <random>
 
@@ -36,6 +37,10 @@ int main() {
     _getch();
 
     int highScore = 0;
+    {
+        std::ifstream in("highscore.txt");
+        if (in) in >> highScore;
+    }
 
     // Outer loop — lets the player restart without relaunching
     while (true) {
@@ -101,6 +106,10 @@ int main() {
                 else if (key == 'q') { quit = true; decided = true; }
             }
             Sleep(50);
+        }
+        {
+            std::ofstream out("highscore.txt");
+            out << highScore;
         }
         if (quit) break;
     }
