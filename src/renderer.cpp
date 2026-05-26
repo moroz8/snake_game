@@ -30,7 +30,7 @@ void Renderer::init() {
     SetConsoleWindowInfo(hCon, TRUE, &win);
 
     // Set console title
-    SetConsoleTitleA("Snake - Claude Code Demo");
+    SetConsoleTitleA("Simple Snake Game");
 }
 
 void Renderer::setCursor(int x, int y) const {
